@@ -1,3 +1,11 @@
+
+<mat-toolbar>
+        <span>{{productService.form.controls['$key'].value?"Modify Product":"New Product"}}</span>
+        <span class="fill-remaining-space"></span>
+        <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+
 <form [formGroup] = "productService.form" class="normal-form" (submit)="onSubmit()">
     <mat-grid-list cols="2" rowHeight="300px">
         <mat-grid-tile>
@@ -19,7 +27,7 @@
                  </mat-form-field>  
 
                  <div class="add-bottom-padding">
-                    <mat-radio-group formControlName="gamme">
+                    <mat-radio-group formControlName="mesure">
                         <mat-radio-button value="Pesée">Pesée</mat-radio-button>
                         <mat-radio-button value="Pièce">Pièce</mat-radio-button>
                     </mat-radio-group>
@@ -60,7 +68,7 @@
                 
                 <div class="button-row">
                     <button  [disabled]="productService.form.invalid" mat-raised-button color="primary" type="submit" >Sauver</button>
-                    <button mat-raised-button color="warn" (click)="onClear()">Retirer</button>
+                    <button mat-raised-button color="warn" (click)="onClear()"  >Retirer</button>
                 </div>
                 
 

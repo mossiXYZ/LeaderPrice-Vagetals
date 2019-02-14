@@ -20,8 +20,9 @@ export class ProductService {
     $key : new FormControl(null),//primaryKey hidden
     code :  new FormControl('', Validators.required),
     nom :  new FormControl('', Validators.required),
-    type : new FormControl(0),//selectControl dropdownList
-    gamme :  new FormControl('1'),//radioButton
+    type : new FormControl(''),//selectControl dropdownList
+    gamme :  new FormControl(''),//radioButton
+    mesure :  new FormControl(''),//radioButton
     imageUrl: new FormControl(''),
     enStock:  new FormControl(false)//checkBox
   });
@@ -32,8 +33,9 @@ export class ProductService {
       $key : null,
       code : '',
       nom : '',
-      type :0,
-      gamme : '1',
+      type :'',
+      gamme : '',
+      mesure : '',
       imageUrl:'',
       enStock: false
     });
@@ -51,6 +53,7 @@ export class ProductService {
       nom : product.nom,
       type : product.type,
       gamme : product.gamme,
+      mesure :product.mesure,
       imageUrl: product.imageUrl,
       enStock : product.enStock
     });
@@ -64,6 +67,7 @@ export class ProductService {
       nom : product.nom,
       type : product.type,
       gamme : product.gamme,
+      mesure :product.mesure,
       imageUrl: product.imageUrl,
       enStock : product.enStock
     });
@@ -71,6 +75,10 @@ export class ProductService {
 
   deleteProduct($key: string){
     this.productList.remove($key); 
+  }
+
+  populateForm(row){
+    this.form.setValue(row);
   }
 
 }

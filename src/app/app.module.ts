@@ -14,12 +14,17 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { NotificationService } from './shared/notification.service';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { DialogService } from './shared/dialog.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    ProductListComponent,
+    MatConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +39,13 @@ import { NotificationService } from './shared/notification.service';
   ],
   providers: [
     ProductService,
-    NotificationService
+    NotificationService,
+    DialogService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+     ProductComponent,
+    MatConfirmDialogComponent
+  ]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/product.service';
 import { NotificationService } from 'src/app/shared/notification.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +12,7 @@ export class ProductComponent implements OnInit {
 
   constructor(private productService : ProductService,
     private notificationService : NotificationService,
+    public dialogRef: MatDialogRef<ProductComponent>
     ) { }
 
 
@@ -33,16 +35,22 @@ export class ProductComponent implements OnInit {
   }
 
   onSubmit(){
-    if (this.productService.form.valid)
+    if (this.productService.form.valid){
+      if(!this.productService.form.get('$key').value)
         this.productService.insertProduct(this.productService.form.value);
-        this.productService.form.reset();
-        this.productService.initializeFormGroup();
-        this.notificationService.success('Submitted successfully');
-        this.onClose();
+      else
+        this.productService.updateProduct(this.productService.form.value);
+
+      this.productService.form.reset();
+      this.productService.initializeFormGroup();
+      this.notificationService.success('Submitted successfully');
+      this.onClose();
+    }
   }
   
   onClose() {
     this.productService.form.reset();
     this.productService.initializeFormGroup();
+    this.dialogRef.close();
   }
 }
