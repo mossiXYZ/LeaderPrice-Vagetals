@@ -1,0 +1,12 @@
+• src
++----• app
+|    +__• products
+|    |   |__products.component.ts|.html|.css
+|    |   |
+|    |   +____• product
+|    |        |__product.component.ts|.html|.css
+|    |      
+|    +__• shared
+|    |       |__product.service.ts(form group)
+|    |   
+|    |__app.module.ts

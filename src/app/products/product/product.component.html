@@ -1,0 +1,71 @@
+<form [formGroup] = "productService.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="$key"> 
+
+                <mat-form-field>
+                   <input formControlName="code" matInput placeholder="Code*">
+                   <mat-error>Code est requis!</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input formControlName="nom" matInput placeholder="Nom*">
+                    <mat-error>Nom est requis!</mat-error>
+                 </mat-form-field>
+    
+                 <mat-form-field>
+                    <input formControlName="imageUrl" matInput placeholder="Image URL">
+                 </mat-form-field>  
+
+                 <div class="add-bottom-padding">
+                    <mat-radio-group formControlName="gamme">
+                        <mat-radio-button value="Pesée">Pesée</mat-radio-button>
+                        <mat-radio-button value="Pièce">Pièce</mat-radio-button>
+                    </mat-radio-group>
+                </div>  
+
+            </div>
+
+        </mat-grid-tile>
+
+
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field >
+                    <mat-select formControlName="type" placeholder="Type">
+                        <mat-option>None</mat-option>
+                        <ng-container *ngFor="let type of types">
+                            <mat-option value="{{type.value}}">{{type.value}}</mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                <br>  <br>
+                <div class="add-bottom-padding">
+                    <mat-radio-group formControlName="gamme">
+                        <mat-radio-button value="BIO">BIO</mat-radio-button>
+                        <mat-radio-button value="PROMO">PROMO</mat-radio-button>
+                        <mat-radio-button value="EXOTIQUE">EXOTIQUE</mat-radio-button>
+                        <mat-radio-button value="None">None</mat-radio-button>
+                    </mat-radio-group>
+                </div>  
+
+
+                <br> <br>
+
+
+                <div class="add-bottom-padding">
+                    <mat-checkbox formControlName="enStock">En Stock</mat-checkbox>
+                </div>
+                
+                <div class="button-row">
+                    <button  [disabled]="productService.form.invalid" mat-raised-button color="primary" type="submit" >Sauver</button>
+                    <button mat-raised-button color="warn" (click)="onClear()">Retirer</button>
+                </div>
+                
+
+
+             </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>
