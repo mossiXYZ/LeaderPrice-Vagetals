@@ -1,4 +1,5 @@
-<div class="search-div">
+
+<div class="search-div" fxLayout="row">
     <button mat-raised-button (click)="onCreate()">
       <mat-icon>add</mat-icon>Create
     </button>
@@ -12,32 +13,32 @@
 
 
 
-<div class="mat-elevation-z8">
+<div class="example-container mat-elevation-z8">
   <mat-table [dataSource] = "listData" matSort>
 
       <ng-container matColumnDef="nom">
           <mat-header-cell *matHeaderCellDef mat-sort-header >Nom</mat-header-cell>
-          <mat-cell *matCellDef="let element">{{element.nom}}</mat-cell>
+          <mat-cell *matCellDef="let element" data-label="Nom">{{element.nom}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="code">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Code</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.code}}</mat-cell>
+            <mat-cell *matCellDef="let element" data-label="Code">{{element.code}}</mat-cell>
         </ng-container>
       
         <ng-container matColumnDef="type">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+            <mat-cell *matCellDef="let element" data-label="Type">{{element.type}}</mat-cell>
           </ng-container>
 
         <ng-container matColumnDef="gamme">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Gamme</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.gamme}}</mat-cell>
+              <mat-cell *matCellDef="let element" data-label="Gamme">{{element.gamme}}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="mesure">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Mesure</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{element.mesure}}</mat-cell>
+            <mat-cell *matCellDef="let element" data-label="Mesure">{{element.mesure}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">

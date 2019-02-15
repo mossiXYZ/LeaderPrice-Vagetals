@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './products/product/product.component';
 import { ProductService } from './shared/product.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Firebase Modules
 import { AngularFireModule } from '@angular/fire';
@@ -34,8 +35,8 @@ import { DialogService } from './shared/dialog.service';
     FormsModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // Main Angular fire module 
-    AngularFireDatabaseModule  // Firebase database module
-
+    AngularFireDatabaseModule,  // Firebase database module
+    FlexLayoutModule
   ],
   providers: [
     ProductService,
