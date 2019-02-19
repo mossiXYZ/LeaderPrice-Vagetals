@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/LeaderPrice-vegetal",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

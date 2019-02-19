@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private productService : ProductService,
+  constructor(public productService : ProductService,
     private notificationService : NotificationService,
     public dialogRef: MatDialogRef<ProductComponent>
     ) { }
